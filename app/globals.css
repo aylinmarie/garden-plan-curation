@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf8f4;
+  --foreground: #2c2416;
+  --cream: #faf8f4;
+  --warm-brown: #6b4c2a;
+  --sage: #7a9e7e;
+  --terracotta: #c4714a;
+  --parchment: #f0ead6;
+  --border: #d9cdb8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cream: var(--cream);
+  --color-warm-brown: var(--warm-brown);
+  --color-sage: var(--sage);
+  --color-terracotta: var(--terracotta);
+  --color-parchment: var(--parchment);
+  --color-border: var(--border);
+  --font-sans: var(--font-sans-body);
+  --font-serif: var(--font-serif-display);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.font-display {
+  font-family: var(--font-serif-display), Georgia, "Times New Roman", serif;
+}
+
+/* ---- Reusable component styles ---- */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background-color: var(--warm-brown);
+  color: var(--cream);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s, opacity 0.15s;
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: #4e3318;
+}
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background-color: transparent;
+  color: var(--warm-brown);
+  border: 1.5px solid var(--warm-brown);
+  cursor: pointer;
+  transition: background-color 0.15s, opacity 0.15s;
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--parchment);
+}
+.btn-secondary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.form-select {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--border);
+  background-color: white;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b4c2a' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.25em;
+  padding-right: 2rem;
+}
+.form-select:focus {
+  outline: none;
+  border-color: var(--sage);
+  box-shadow: 0 0 0 2px rgba(122,158,126,0.25);
+}
+.form-select:disabled {
+  opacity: 0.55;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.radio-input {
+  accent-color: var(--sage);
+  width: 1rem;
+  height: 1rem;
+}
+
+.size-toggle {
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.625rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1.5px solid var(--border);
+  background: white;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+}
+.size-toggle[data-active="true"] {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: white;
+  font-weight: 600;
+}
+.size-toggle:hover:not(:disabled):not([data-active="true"]) {
+  border-color: var(--sage);
+}
+.size-toggle:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
